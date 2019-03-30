@@ -1,4 +1,4 @@
-package net.jgp.books.spark.ch12.lab930JsonInvoice;
+package net.jgp.books.spark.ch12.lab930_json_invoice;
 
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;

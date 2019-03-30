@@ -1,4 +1,4 @@
-package net.jgp.books.spark.ch12.lab200RecordTransformation;
+package net.jgp.books.spark.ch12.lab200_record_transformation;
 
 import static org.apache.spark.sql.functions.expr;
 import static org.apache.spark.sql.functions.split;

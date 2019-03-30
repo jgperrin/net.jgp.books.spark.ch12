@@ -1,4 +1,4 @@
-package net.jgp.books.spark.ch12.lab301JoinUsingAlias;
+package net.jgp.books.spark.ch12.lab301_join_using_alias;
 
 import static org.apache.spark.sql.functions.element_at;
 import static org.apache.spark.sql.functions.size;

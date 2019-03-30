@@ -1,4 +1,4 @@
-package net.jgp.books.spark.ch12.lab410FlattenShipment;
+package net.jgp.books.spark.ch12.lab410_flatten_shipment;
 
 import static org.apache.spark.sql.functions.explode;
 

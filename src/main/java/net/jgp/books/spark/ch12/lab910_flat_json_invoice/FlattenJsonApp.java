@@ -1,4 +1,4 @@
-package net.jgp.books.spark.ch12.lab910FlatJsonInvoice;
+package net.jgp.books.spark.ch12.lab910_flat_json_invoice;
 
 import static org.apache.spark.sql.functions.explode;
 

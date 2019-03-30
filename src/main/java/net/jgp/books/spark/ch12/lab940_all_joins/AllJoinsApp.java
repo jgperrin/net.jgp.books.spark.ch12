@@ -1,4 +1,4 @@
-package net.jgp.books.spark.ch12.lab940AllJoins;
+package net.jgp.books.spark.ch12.lab940_all_joins;
 
 import java.util.ArrayList;
 import java.util.List;

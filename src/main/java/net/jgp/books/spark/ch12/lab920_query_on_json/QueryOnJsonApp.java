@@ -1,4 +1,4 @@
-package net.jgp.books.spark.ch12.lab920QueryOnJson;
+package net.jgp.books.spark.ch12.lab920_query_on_json;
 
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;

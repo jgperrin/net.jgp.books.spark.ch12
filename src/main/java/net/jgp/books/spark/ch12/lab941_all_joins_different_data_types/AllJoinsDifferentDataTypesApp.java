@@ -1,4 +1,4 @@
-package net.jgp.books.spark.ch12.lab941AllJoinsDifferentDataTypes;
+package net.jgp.books.spark.ch12.lab941_all_joins_different_data_types;
 
 import java.util.ArrayList;
 import java.util.List;
