@@ -52,34 +52,40 @@ public class AllJoinsApp {
             false) });
 
     List<Row> rows = new ArrayList<Row>();
-    rows.add(RowFactory.create(1, "A1"));
-    rows.add(RowFactory.create(2, "A2"));
-    rows.add(RowFactory.create(3, "A3"));
-    rows.add(RowFactory.create(4, "A4"));
+    rows.add(RowFactory.create(1, "Value 1"));
+    rows.add(RowFactory.create(2, "Value 2"));
+    rows.add(RowFactory.create(3, "Value 3"));
+    rows.add(RowFactory.create(4, "Value 4"));
     Dataset<Row> dfLeft = spark.createDataFrame(rows, schema);
     dfLeft.show();
 
     rows = new ArrayList<Row>();
-    rows.add(RowFactory.create(3, "A3"));
-    rows.add(RowFactory.create(4, "A4"));
-    rows.add(RowFactory.create(4, "A4_1"));
-    rows.add(RowFactory.create(5, "A5"));
-    rows.add(RowFactory.create(6, "A6"));
+    rows.add(RowFactory.create(3, "Value 3"));
+    rows.add(RowFactory.create(4, "Value 4"));
+    rows.add(RowFactory.create(4, "Value 4_1"));
+    rows.add(RowFactory.create(5, "Value 5"));
+    rows.add(RowFactory.create(6, "Value 6"));
     Dataset<Row> dfRight = spark.createDataFrame(rows, schema);
     dfRight.show();
 
     String[] joinTypes = new String[] {
         "inner", // v2.0.0. default
-        "cross", // v2.2.0
+
         "outer", // v2.0.0
         "full", // v2.1.1
         "full_outer", // v2.1.1
+
         "left", // v2.1.1
         "left_outer", // v2.0.0
+
         "right", // v2.1.1
         "right_outer", // v2.0.0
+
         "left_semi", // v2.0.0, was leftsemi before v2.1.1
-        "left_anti" // v2.1.1
+
+        "left_anti", // v2.1.1
+
+        "cross" // with a column, v2.2.0
     };
 
     for (String joinType : joinTypes) {
@@ -90,5 +96,9 @@ public class AllJoinsApp {
           joinType);
       df.orderBy(dfLeft.col("id")).show();
     }
+
+    System.out.println("CROSS JOIN (without a column");
+    Dataset<Row> df = dfLeft.crossJoin(dfRight);
+    df.orderBy(dfLeft.col("id")).show();
   }
 }

@@ -1,9 +1,10 @@
 package net.jgp.books.spark.ch12.lab930_json_invoice;
 
+import static org.apache.spark.sql.functions.explode;
+
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
-import static org.apache.spark.sql.functions.explode;
 
 /**
  * Processing of invoices formatted using the schema.org format.
