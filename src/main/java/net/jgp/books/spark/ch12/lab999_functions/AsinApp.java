@@ -1,6 +1,6 @@
 package net.jgp.books.spark.ch12.lab999_functions;
 
-import static org.apache.spark.sql.functions.acos;
+import static org.apache.spark.sql.functions.asin;
 import static org.apache.spark.sql.functions.col;
 
 import org.apache.spark.sql.Dataset;
@@ -8,11 +8,11 @@ import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
 
 /**
- * acos function: inverse cosine of a value in radians
+ * asin function: inverse sine of a value in radians
  * 
  * @author jgp
  */
-public class AcosApp {
+public class AsinApp {
 
   /**
    * main() is your entry point to the application.
@@ -20,7 +20,7 @@ public class AcosApp {
    * @param args
    */
   public static void main(String[] args) {
-    AcosApp app = new AcosApp();
+    AsinApp app = new AsinApp();
     app.start();
   }
 
@@ -37,8 +37,8 @@ public class AcosApp {
         .option("header", "true")
         .load("data/functions/trigo_arc.csv");
 
-    df = df.withColumn("acos", acos(col("val")));
-    df = df.withColumn("acos_by_name", acos("val"));
+    df = df.withColumn("asin", asin(col("val")));
+    df = df.withColumn("asin_by_name", asin("val"));
 
     df.show();
   }
