@@ -27,3 +27,9 @@ hs_err_pid*
 /bin/
 /.DS_Store
 /cp.txt
+*.DS_Store
+.idea/*
+*.iml
+target/*
+project/target/*
+project/project/*
