@@ -51,11 +51,11 @@ object KeepingOrderScalaApp {
       DataTypes.createStructField("sum", DataTypes.DoubleType, false)))
 
     val rows = new ArrayList[Row]
-    rows.add(RowFactory.create(int2Integer(1), "a", 3555204326.27))
-    rows.add(RowFactory.create(int2Integer(4), "b", 22273491.72))
-    rows.add(RowFactory.create(int2Integer(5), "c", 219175.0))
-    rows.add(RowFactory.create(int2Integer(3), "a", 219175.0))
-    rows.add(RowFactory.create(int2Integer(2), "c", 75341433.37))
+    rows.add(RowFactory.create(int2Integer(1), "a", double2Double(3555204326.27)))
+    rows.add(RowFactory.create(int2Integer(4), "b", double2Double(22273491.72)))
+    rows.add(RowFactory.create(int2Integer(5), "c", double2Double(219175.0)))
+    rows.add(RowFactory.create(int2Integer(3), "a", double2Double(219175.0)))
+    rows.add(RowFactory.create(int2Integer(2), "c",double2Double( 75341433.37)))
     spark.createDataFrame(rows, schema)
   }
 

@@ -90,8 +90,8 @@ object LowLevelTransformationAndActionScalaApp {
 
     // groupByKey
     println("groupByKey()")
-    val groupByKeyDs = df.groupByKey(new StateFipsExtractorUsingMap, Encoders.STRING)
-    groupByKeyDs.count.show(5)
+    val groupByKeyDf = df.groupByKey(new StateFipsExtractorUsingMap, Encoders.STRING)
+    groupByKeyDf.count.show(5)
 
     // dropDuplicates
     println("dropDuplicates()")
@@ -214,7 +214,10 @@ object LowLevelTransformationAndActionScalaApp {
 
     @throws[Exception]
     override def call(r: Row): Unit = {
-      if (count < 10) println(r.getAs("Geography").toString + " had " + r.getAs("real2010").toString + " inhabitants in 2010.")
+      if (count < 10)
+        println(r.getAs("Geography").toString +
+          " had " + r.getAs("real2010").toString +
+          " inhabitants in 2010.")
       count += 1
     }
   }

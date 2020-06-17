@@ -1,7 +1,6 @@
 package net.jgp.books.spark.ch12.lab990_others
 
 import java.util.{ArrayList, Random}
-
 import org.apache.spark.sql.functions.{col, from_unixtime}
 import org.apache.spark.sql.types.{DataTypes, StructField}
 import org.apache.spark.sql.{Row, RowFactory, SparkSession}
@@ -25,7 +24,7 @@ object EpochConversionScalaApp {
      */
     // Creates a session on a local master
     val spark: SparkSession = SparkSession.builder
-      .appName("expr()")
+      .appName("from_unixtime()")
       .master("local[*]")
       .getOrCreate
 

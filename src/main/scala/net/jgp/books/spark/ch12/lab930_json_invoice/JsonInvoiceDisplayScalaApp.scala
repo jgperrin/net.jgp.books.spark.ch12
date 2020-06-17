@@ -38,19 +38,22 @@ object JsonInvoiceDisplayScalaApp {
     invoiceAmountDf.show(5)
     invoiceAmountDf.printSchema()
 
-    var elementsOrderedByAccountDf = invoicesDf
+    val elementsOrderedByAccountDf = invoicesDf
       .select(F.col("accountId"),
         F.explode(F.col("referencesOrder")).as("order"))
 
-    elementsOrderedByAccountDf = elementsOrderedByAccountDf
+    elementsOrderedByAccountDf.show(10)
+    elementsOrderedByAccountDf.printSchema()
+
+    val elementsOrderedByAccountDf2 = elementsOrderedByAccountDf
       .withColumn("type", F.col("order.orderedItem.@type"))
       .withColumn("description", F.col("order.orderedItem.description"))
       .withColumn("name", F.col("order.orderedItem.name"))
-      .drop(F.col("order"))
-      //.drop("order")
+    // TODO: failing to drop struct field
+    //.drop("order")
 
-    elementsOrderedByAccountDf.show(10)
-    elementsOrderedByAccountDf.printSchema()
+    elementsOrderedByAccountDf2.show(10)
+    elementsOrderedByAccountDf2.printSchema()
 
     spark.stop
   }

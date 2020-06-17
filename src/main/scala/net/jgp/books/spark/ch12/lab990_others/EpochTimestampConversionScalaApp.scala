@@ -38,7 +38,7 @@ object EpochTimestampConversionScalaApp {
     var now: Long = System.currentTimeMillis / 1000
 
     for (i <- 0.until(1000)) {
-      rows.add(RowFactory.create(i, String.valueOf(now)))
+      rows.add(RowFactory.create(int2Integer(i), String.valueOf(now)))
       now += new Random().nextInt(3) + 1
     }
 

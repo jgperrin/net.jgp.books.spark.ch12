@@ -1,7 +1,6 @@
 package net.jgp.books.spark.ch12.lab941_all_joins_different_data_types
 
 import java.util.ArrayList
-
 import org.apache.spark.sql.types.{DataTypes, StructField}
 import org.apache.spark.sql.{Row, RowFactory, SparkSession}
 
@@ -27,7 +26,7 @@ object AllJoinsDifferentDataTypesScalaApp {
      */
     // Creates a session on a local master
     val spark: SparkSession = SparkSession.builder
-      .appName("Processing of invoices")
+      .appName("All joins!")
       .master("local[*]")
       .getOrCreate
 
@@ -74,7 +73,8 @@ object AllJoinsDifferentDataTypesScalaApp {
 
     for (joinType <- joinTypes) {
       println(joinType.toUpperCase + " JOIN")
-      val df = dfLeft.join(dfRight, dfLeft.col("id") === dfRight.col("idx"), joinType)
+      val df = dfLeft.join(dfRight,
+        dfLeft.col("id") === dfRight.col("idx"), joinType)
       df.orderBy(dfLeft.col("id")).show()
     }
 

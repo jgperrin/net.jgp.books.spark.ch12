@@ -25,16 +25,16 @@ object QueryOnJsonScalaApp {
       .getOrCreate
 
     // Reads a JSON, stores it in a dataframe
-    var df = spark.read
+    val df = spark.read
       .format("json")
       .option("multiline", true)
       .load("data/json/store.json")
 
     // Explode the array
-    df = df.withColumn("items", F.explode(F.col("store.book")))
+    val df2 = df.withColumn("items", F.explode(F.col("store.book")))
 
     // Creates a view so I can use SQL
-    df.createOrReplaceTempView("books")
+    df2.createOrReplaceTempView("books")
     val sqlQuery = "SELECT items.author FROM books WHERE items.category = 'reference'"
     val authorsOfReferenceBookDf = spark.sql(sqlQuery)
     authorsOfReferenceBookDf.show(false)

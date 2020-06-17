@@ -32,7 +32,7 @@ object ExprScalaApp {
       DataTypes.createStructField("end", DataTypes.IntegerType, false)))
 
     val rows = new ArrayList[Row]
-    rows.add(RowFactory.create("bla", 10, 30))
+    rows.add(RowFactory.create("bla", int2Integer(10), int2Integer(30)))
     var df: Dataset[Row] = spark.createDataFrame(rows, schema)
     df.show()
 

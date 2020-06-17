@@ -114,9 +114,11 @@ object HigherEdInstitutionPerCountyScalaApp {
     countyZipDf.sample(0.1).show(3, false)
     countyZipDf.printSchema()
 
+    val institPerCountyJoinCondition = higherEdDf.col("zip") === countyZipDf.col("zip")
     // Institutions per county id
     var institPerCountyDf = higherEdDf
-      .join(countyZipDf, higherEdDf.col("zip") === countyZipDf.col("zip"), "inner")
+        .join(countyZipDf, institPerCountyJoinCondition, "inner")
+        .drop(countyZipDf.col("zip"))
 
     println("Higher education institutions left-joined with HUD")
     institPerCountyDf.filter(F.col("zip") === 27517).show(20, false)
@@ -142,9 +144,11 @@ object HigherEdInstitutionPerCountyScalaApp {
       .show(3, false)
     // --------------------------
 
+    val institPerCountyCondition = institPerCountyDf.col("county") === censusDf.col("countyId")
     // Institutions per county name
     institPerCountyDf = institPerCountyDf
-      .join(censusDf, F.col("county") === F.col("countyId"), "left")
+        .join(censusDf, institPerCountyCondition, "left")
+        .drop(censusDf.col("county"))
 
     // Final clean up
     institPerCountyDf = institPerCountyDf

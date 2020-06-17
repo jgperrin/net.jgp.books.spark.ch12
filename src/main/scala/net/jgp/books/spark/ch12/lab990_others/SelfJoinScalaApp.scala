@@ -68,10 +68,11 @@ object SelfJoinScalaApp {
       DataTypes.createStructField("name", DataTypes.StringType, false)))
 
     val rows = new ArrayList[Row]
-    rows.add(RowFactory.create(int2Integer(1), 123, 111, "Peter"))
-    rows.add(RowFactory.create(int2Integer(2), 123, 222, "Paul"))
-    rows.add(RowFactory.create(int2Integer(3), 456, 333, "John"))
-    rows.add(RowFactory.create(int2Integer(4), 567, 444, "Casey"))
+
+    rows.add(RowFactory.create(int2Integer(1), int2Integer(123), int2Integer(111), "Peter"))
+    rows.add(RowFactory.create(int2Integer(2), int2Integer(123), int2Integer(222), "Paul"))
+    rows.add(RowFactory.create(int2Integer(3), int2Integer(456), int2Integer(333), "John"))
+    rows.add(RowFactory.create(int2Integer(4), int2Integer(567), int2Integer(444), "Casey"))
 
     spark.createDataFrame(rows, schema)
   }
