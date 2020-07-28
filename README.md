@@ -2,7 +2,7 @@ The examples in this repository are support to the **[Spark in Action, 2nd editi
 
 # Spark in Action, 2nd edition - chapter 12
 
-Welcome to Spark with Java, chapter 12. This chapter is about **data transformation**.
+Welcome to Spark in Action 2nd edition, chapter 12. This chapter is about **data transformation**.
 
 This code is designed to work with Apache Spark v3.0.0.
 
