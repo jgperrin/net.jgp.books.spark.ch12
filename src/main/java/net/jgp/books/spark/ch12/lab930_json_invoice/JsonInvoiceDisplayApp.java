@@ -60,8 +60,10 @@ public class JsonInvoiceDisplayApp {
             elementsOrderedByAccountDf.col("order.orderedItem.description"))
         .withColumn(
             "name",
-            elementsOrderedByAccountDf.col("order.orderedItem.name"))
-        .drop(elementsOrderedByAccountDf.col("order"));
+            elementsOrderedByAccountDf.col("order.orderedItem.name"));
+    // TODO: we need to use different approch to drop struct column
+    //.drop(elementsOrderedByAccountDf.col("order"));
+
     elementsOrderedByAccountDf.show(10);
     elementsOrderedByAccountDf.printSchema();
   }
